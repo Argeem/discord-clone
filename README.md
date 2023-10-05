@@ -67,4 +67,15 @@ networks:
 
 ```
 
-1.00.00
+## Prisma
+Migrate database with prisma file by using
+```
+npx prisma db push
+```
+and can monitor data base with
+```
+npx prisma studio
+```
+
+
+1.43.00
