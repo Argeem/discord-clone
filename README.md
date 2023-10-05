@@ -78,4 +78,4 @@ npx prisma studio
 ```
 
 
-1.26.07
+1.43.00
