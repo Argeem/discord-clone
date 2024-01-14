@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const formSchema = z.object({
     name: z.string().min(1,{
@@ -31,6 +32,12 @@ const formSchema = z.object({
 })
 
 export const InitialModal = () =>{
+    const [isMounted,setIsMounted] = useState(false)
+
+    useEffect(()=>{
+        setIsMounted(true)
+    })
+
     const form = useForm({
         resolver:zodResolver(formSchema),
         defaultValues:{
@@ -43,6 +50,10 @@ export const InitialModal = () =>{
 
     const onSubmit = async(values: z.infer<typeof formSchema>) =>{
         console.log(values);
+    }
+
+    if (!isMounted){
+        return null;
     }
 
     return(
@@ -80,12 +91,15 @@ export const InitialModal = () =>{
                                                 {...field}
                                             />
                                         </FormControl>
+                                        <FormMessage/>
                                     </FormItem>
                                 )}
                             />
                         </div>
                         <DialogFooter className="bg-gray-1000 px-6 py-4">
-                            <Button disabled={isLoading}>
+                            <Button 
+                                variant="primary"
+                                disabled={isLoading}>
                                 Create
                             </Button>
                         </DialogFooter>
