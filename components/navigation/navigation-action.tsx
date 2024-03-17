@@ -1,12 +1,12 @@
 "use client"
 
 import { Plus } from "lucide-react";
-import { ActionTooltop } from "../action-tooltip";
+import { ActionTooltip } from "../action-tooltip";
 
 export const NavigationAction = () => {
     return (
         <div>
-            <ActionTooltop
+            <ActionTooltip
                 side="right"
                 align="center"
                 label="Add a server"
@@ -22,7 +22,7 @@ export const NavigationAction = () => {
                         />
                     </div>
                 </button>
-            </ActionTooltop>
+            </ActionTooltip>
         </div>
     )
 }
